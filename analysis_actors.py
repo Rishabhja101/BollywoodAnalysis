@@ -73,9 +73,11 @@ average_movies=average_movies/len(names)
 average_movies=list(average_movies)
 while average_movies[-1] == 0:
     average_movies.pop(-1)
-print(average_movies)
 
 plt.plot(average_movies)
+plt.xlabel("Number of years as an actor in the Industry")
+plt.ylabel("Average number of movies produced")
+plt.title("Average number of movies produced per year for actor")
 plt.show()
 #print(years)
 #print(np.mean(years))

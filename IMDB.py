@@ -14,20 +14,12 @@ def dynasty():
     person = ia.search_person(input())
     filmography=ia.get_person(person[0].personID, info=['filmography'])
     filmography_list=filmography['filmography']
-
     dic = {}
     list_ = []
-
-    # print(filmography_list)
-
-    
     if 'actor' not in filmography_list:
         data = filmography_list['actress']
     else:
         data = filmography_list['actor']
-    
-    # print(filmography_list)
-
     for item in data:
         if item.items()[1][1] == 'movie' and type(item.items()[2][1]) == int:
             if str(item.items()[2][1]) not in dic:
@@ -35,35 +27,18 @@ def dynasty():
             else:
                 dic[str(item.items()[2][1])] += 1
             list_.append(item.items()[2][1])
-
     for date in range(min(list_), max(list_)):
         if str(date) not in dic:
             dic[str(date)] = 0
-
     dic_reversed = {}
     for item in sorted(dic.keys()):
         dic_reversed[item] = dic[item]
-
     # print(dic_reversed)
     plt.bar(dic_reversed.keys(), dic_reversed.values(), 1, color='g')
+    plt.xlabel("Year")
+    plt.ylabel("Movies Produced")
+    plt.title("Number of movies produced per year")
     plt.xticks(rotation = 90)
     plt.show()
-
-    # #dataframe
-    # required_df=pd.DataFrame(d)
-    # #output to csv
-    # required_df.to_csv(str(person[0])+'_filmography_df.csv')
- 
-    # #Year he/she entered film industry
-    # entry_year=min(required_df['start_year'][required_df['start_year']!='unknown'])
-    # print('The entry year of ', person[0], ' is ' , entry_year)
-    # #Debut Movie/non-movie
-    # debut= required_df['movie/non-movie'][required_df['start_year']==entry_year]
-    # print('The first appearance was in ', debut)
-    # #Time in the industry
-    # time_industry=max(required_df['start_year'][required_df['start_year']!='unknown'])-entry_year
-    # print('The total time in the industry is ', time_industry)
-    # #filmography music
-    # return required_df
 while True: 
     dynasty()

@@ -26,8 +26,6 @@ for name in names:
 
     dic = {}
     list_ = []
-
-    
     
     if 'actor' not in filmography_list:
         data = filmography_list['actress']
