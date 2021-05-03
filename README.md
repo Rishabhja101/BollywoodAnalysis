@@ -19,7 +19,7 @@
 #### **Analysis_actress.py:**
 4. Produces average filmography span (in years) for a list of 35 actresses as a line graph
 ![image](https://user-images.githubusercontent.com/82107886/116833616-e40a2b00-ab7f-11eb-966e-f7d81e806d31.png)
-* The x-axis of the above line graph represents the cumulation of the filmography spans of a list of 35 actresses given in the source code “Analysis_actors.py”. The y-axis represents the total number of movies per year. 
+* The x-axis of the above line graph represents the cumulation of the filmography spans of a list of 35 actresses given in the source code “Analysis_actresss.py”. The y-axis represents the total number of movies per year. 
 * For example, on average, an actress in her first year of acting in the industry produces an average of around 1.7 movies. 
 
 
