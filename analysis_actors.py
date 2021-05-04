@@ -4,15 +4,16 @@ import pandas as pd
 import re
 import numpy as np
 import matplotlib.pyplot as plt
- 
+import time
 ia=IMDb()
 per=Person()
  
-names=['Aamir Khan','Shah Rukh Khan','Amitabh Bachchan','Dilip Kumar',' Kamal Haasan',' Raj Kapoor','Rajesh Khanna',' Uttam Kumar',' Irrfan Khan',' Mohanlal',' Mammootty',
-'Dev Anand','Naseeruddin Shah','Amrish Puri',' Soumitra Chatterjee',' Anupam Kher',' Sanjeev Kumar','Ajay Devgn',' Akshay Kumar','Rajinikanth','Anil Kapoor','Dharmendra',
-'Hrithik Roshan',' Salman Khan','Madhavan','Abhishek Bachchan','Aashish Chaudhary','Abbas',' Amjad Khan',' Amol Palekar','Akshaye Khanna',' Arshad Warsi','Atul Kulkarni',
-' Asrani',' Ayushmann Khurrana',' Annu Kapoor','Ashish Vidyarthi']
+names=['Aamir Khan','Shah Rukh Khan','Amitabh Bachchan','Dilip Kumar',' Kamal Haasan','Raj Kapoor','Rajesh Khanna','Uttam Kumar','Irrfan Khan',' Mohanlal',' Mammootty',
+'Dev Anand','Naseeruddin Shah','Amrish Puri','Soumitra Chatterjee','Anupam Kher','Sanjeev Kumar','Ajay Devgn','Akshay Kumar','Rajinikanth','Anil Kapoor','Dharmendra',
+'Hrithik Roshan','Salman Khan','Madhavan','Abhishek Bachchan','Aashish Chaudhary','Amjad Khan','Amol Palekar','Akshaye Khanna','Arshad Warsi','Atul Kulkarni',
+'Asrani','Ayushmann Khurrana','Annu Kapoor','Ashish Vidyarthi']
 names=np.unique(names)
+
 
 c=0
 average_movies=np.zeros(100)
@@ -77,7 +78,7 @@ while average_movies[-1] == 0:
 plt.plot(average_movies)
 plt.xlabel("Number of years as an actor in the Industry")
 plt.ylabel("Average number of movies produced")
-plt.title("Average number of movies produced per year for actor")
+plt.title("Average number of movies produced per year for actors")
 plt.show()
 #print(years)
 #print(np.mean(years))

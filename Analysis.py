@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 ia=IMDb()
 per=Person()
  
-
+#Expected Runtime ~ O(n)
 def indAnalysis():
     print("Enter an actor's name")
     person = ia.search_person(input())
