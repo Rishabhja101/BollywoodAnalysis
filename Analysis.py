@@ -8,25 +8,20 @@ import matplotlib.pyplot as plt
 ia=IMDb()
 per=Person()
  
-names=['Aamir Khan','Shah Rukh Khan','Amitabh Bachchan','Dilip Kumar',' Kamal Haasan',' Raj Kapoor','Rajesh Khanna',' Uttam Kumar',' Irrfan Khan',' Mohanlal',' Mammootty',
+actors = ['Aamir Khan','Shah Rukh Khan','Amitabh Bachchan','Dilip Kumar',' Kamal Haasan',' Raj Kapoor','Rajesh Khanna',' Uttam Kumar',' Irrfan Khan',' Mohanlal',' Mammootty',
 'Dev Anand','Naseeruddin Shah','Amrish Puri',' Soumitra Chatterjee',' Anupam Kher',' Sanjeev Kumar','Ajay Devgn',' Akshay Kumar','Rajinikanth','Anil Kapoor','Dharmendra',
 'Hrithik Roshan',' Salman Khan','Madhavan','Abhishek Bachchan','Aashish Chaudhary','Abbas',' Amjad Khan',' Amol Palekar','Akshaye Khanna',' Arshad Warsi','Atul Kulkarni',
 ' Asrani',' Ayushmann Khurrana',' Annu Kapoor','Ashish Vidyarthi']
-names=np.unique(names)
+actors = np.unique(actors)
 c=0
-spike_point=[]
-for name in names:
-    name = name.strip()
-    person = ia.search_person(name)
-    try:
-        filmography=ia.get_person(person[0].personID, info=['filmography'])
-    except:
-        print(name+" Not Found")
-    filmography_list=filmography['filmography']
 
+def indAnalysis():
+    print("Enter an actor's name")
+    person = ia.search_person(input())
+    filmography=ia.get_person(person[0].personID, info=['filmography'])
+    filmography_list=filmography['filmography']
     dic = {}
     list_ = []
-    
     if 'actor' not in filmography_list:
         data = filmography_list['actress']
     else:
@@ -39,19 +34,23 @@ for name in names:
             else:
                 dic[str(item.items()[2][1])] += 1
             list_.append(item.items()[2][1])
-
-    for date in range(min(list_), max(list_)):
+    
+    for date in list_:
         if str(date) not in dic:
             dic[str(date)] = 0
-
-    dic_reversed = {}
+    
+    dic_rev = {}
     for item in sorted(dic.keys()):
-        dic_reversed[item] = dic[item]
-    lis=list(dic_reversed.values())
-    s=sum(lis)
-    mean=np.mean(lis)
-    std=np.std(lis)
-    max_ind=np.argmax(lis)
-    print(name +" " +str(s) +" "+ str(mean)+" "+str(std))
-    spike_point.append(max_ind/len(lis))
-print(spike_point)
+        dic_rev[item] = dic[item]
+
+
+    movies = [int(x) for x in dic_rev.values()]
+
+    su = sum(movies)
+    # print(su)
+    mean = np.mean(movies)
+    std = np.std(movies)
+    spike_point = (np.max(movies) / len(movies))*100
+    print("Total number of movies produced: "+ str(su) + " , " + "Average number of movies per year : " + str(mean) + " Percent into career when most successful: " + str(spike_point))
+
+indAnalysis()
