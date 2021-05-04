@@ -8,12 +8,6 @@ import matplotlib.pyplot as plt
 ia=IMDb()
 per=Person()
  
-actors = ['Aamir Khan','Shah Rukh Khan','Amitabh Bachchan','Dilip Kumar',' Kamal Haasan',' Raj Kapoor','Rajesh Khanna',' Uttam Kumar',' Irrfan Khan',' Mohanlal',' Mammootty',
-'Dev Anand','Naseeruddin Shah','Amrish Puri',' Soumitra Chatterjee',' Anupam Kher',' Sanjeev Kumar','Ajay Devgn',' Akshay Kumar','Rajinikanth','Anil Kapoor','Dharmendra',
-'Hrithik Roshan',' Salman Khan','Madhavan','Abhishek Bachchan','Aashish Chaudhary','Abbas',' Amjad Khan',' Amol Palekar','Akshaye Khanna',' Arshad Warsi','Atul Kulkarni',
-' Asrani',' Ayushmann Khurrana',' Annu Kapoor','Ashish Vidyarthi']
-actors = np.unique(actors)
-c=0
 
 def indAnalysis():
     print("Enter an actor's name")
